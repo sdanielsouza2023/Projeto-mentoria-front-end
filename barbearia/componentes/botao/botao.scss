@@ -1,0 +1,35 @@
+@mixin botaoPrimario{
+    background-color: $corLaranja;
+    color: $corPrimaria;
+}
+@mixin botaoInvertido{
+    background-color: $corPrimaria;
+    color: $corSecundaria;
+    border: 1px solid $corSecundaria;
+}
+
+.btn{
+    width: 100%;
+    border: none;
+    cursor: pointer;
+
+    &.primaria{
+      @include botaoPrimario;
+        &:hover{
+          @include botaoInvertido
+        }
+    }
+
+    &.invertido{
+        @include botaoInvertido;
+        //border:1px solid $corPrimaria ;
+
+        &:hover{
+            @include botaoPrimario;
+        }
+    }
+
+    &:disabled{
+        opacity:0.5;
+    }
+}
